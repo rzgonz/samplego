@@ -4,16 +4,15 @@ import (
 	"fmt"
 	"log"
 	"net"
-	userHandler "rzuser/user/handler"
-	userRepo "rzuser/user/repo"
-	userUsecase "rzuser/user/usecase"
 
-	mysql "gorm.io/driver/mysql"
-	gorm "gorm.io/gorm"
-
-	userDbModel "rzuser/model"
+	"gosample.rzuser/model"
+	userHandler "gosample.rzuser/user/handler"
+	userRepo "gosample.rzuser/user/repo"
+	userUsecase "gosample.rzuser/user/usecase"
 
 	"google.golang.org/grpc"
+	"gorm.io/driver/mysql"
+	gorm "gorm.io/gorm"
 )
 
 func main() {
@@ -25,7 +24,7 @@ func main() {
 	}
 
 	db.Debug().AutoMigrate(
-		userDbModel.UserDB{},
+		model.UserDB{},
 	)
 
 	server := grpc.NewServer()

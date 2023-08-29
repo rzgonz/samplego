@@ -3,7 +3,7 @@ package repo
 import (
 	"github.com/rzgonz/samplego/contract/user/model"
 
-	"rzuser/user"
+	"gosample.rzuser/user"
 
 	"gorm.io/gorm"
 )

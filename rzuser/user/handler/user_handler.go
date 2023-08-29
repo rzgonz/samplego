@@ -2,7 +2,8 @@ package handler
 
 import (
 	"context"
-	"rzuser/user"
+
+	"gosample.rzuser/user"
 
 	"github.com/rzgonz/samplego/contract/user/model"
 
