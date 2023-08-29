@@ -2,17 +2,18 @@ package main
 
 import (
 	"fmt"
-	userRepo "gosample/rzuser/user/repo"
 	"log"
 	"net"
 	userHandler "rzuser/user/handler"
+	userRepo "rzuser/user/repo"
 	userUsecase "rzuser/user/usecase"
 
-	"github.com/rzgonz/samplego/rzuser/model"
+	mysql "gorm.io/driver/mysql"
+	gorm "gorm.io/gorm"
+
+	userDbModel "rzuser/model"
 
 	"google.golang.org/grpc"
-	"gorm.io/driver/mysql"
-	gorm "gorm.io/gorm"
 )
 
 func main() {
@@ -24,7 +25,7 @@ func main() {
 	}
 
 	db.Debug().AutoMigrate(
-		model.UserDB{},
+		userDbModel.UserDB{},
 	)
 
 	server := grpc.NewServer()

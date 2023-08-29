@@ -6,7 +6,7 @@ require (
 	github.com/golang/protobuf v1.5.3
 	google.golang.org/grpc v1.56.2
 	gorm.io/driver/mysql v1.5.1
-	gorm.io/gorm v1.25.2
+	gorm.io/gorm v1.25.4
 )
 
 require (

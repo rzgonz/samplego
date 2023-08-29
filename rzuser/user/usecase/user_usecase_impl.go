@@ -3,7 +3,7 @@ package usecase
 import (
 	"rzuser/user"
 
-	"../contract/user/model"
+	"github.com/rzgonz/samplego/contract/user/model"
 )
 
 type UserUsecaseImpl struct {
