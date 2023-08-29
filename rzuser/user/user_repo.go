@@ -1,7 +1,7 @@
 package user
 
 import (
-	userContract "github.com/rzgonz/samplego/contract/user"
+	userContract "contract/user"
 )
 
 type UserRepo interface {
