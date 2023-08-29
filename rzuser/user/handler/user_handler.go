@@ -4,7 +4,7 @@ import (
 	"context"
 	"rzuser/user"
 
-	"../contract/user/model"
+	"github.com/rzgonz/samplego/contract/user/model"
 
 	"github.com/golang/protobuf/ptypes/empty"
 	"google.golang.org/grpc"

@@ -1,4 +1,4 @@
-module github.com/rzgonz/samplego/contract
+module contract
 
 go 1.20
 

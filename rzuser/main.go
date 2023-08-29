@@ -2,12 +2,13 @@ package main
 
 import (
 	"fmt"
+	userRepo "gosample/rzuser/user/repo"
 	"log"
 	"net"
-	"rzuser/model"
 	userHandler "rzuser/user/handler"
-	userRepo "rzuser/user/repo"
 	userUsecase "rzuser/user/usecase"
+
+	"github.com/rzgonz/samplego/rzuser/model"
 
 	"google.golang.org/grpc"
 	"gorm.io/driver/mysql"

@@ -1,7 +1,7 @@
 package repo
 
 import (
-	"../contract/user/model"
+	"github.com/rzgonz/samplego/contract/user/model"
 
 	"rzuser/user"
 

@@ -1,7 +1,7 @@
 package user
 
 import (
-	userContract ".../"
+	userContract "gosample/contract/user"
 )
 
 type UserRepo interface {
