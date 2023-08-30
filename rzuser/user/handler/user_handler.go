@@ -3,9 +3,9 @@ package handler
 import (
 	"context"
 
-	"gosample.rzuser/user"
+	"github.com/rzgonz/samplego/rzuser/user"
 
-	"github.com/rzgonz/samplego/contract/user/model"
+	"github.com/rzgonz/samplego/rzuser/model"
 
 	"github.com/golang/protobuf/ptypes/empty"
 	"google.golang.org/grpc"

@@ -1,4 +1,4 @@
-module gosample.rzuser
+module github.com/rzgonz/samplego/rzuser
 
 go 1.20
 

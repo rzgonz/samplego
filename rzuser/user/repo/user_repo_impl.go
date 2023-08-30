@@ -1,9 +1,9 @@
 package repo
 
 import (
-	"github.com/rzgonz/samplego/contract/user/model"
+	"github.com/rzgonz/samplego/rzuser/model"
 
-	"gosample.rzuser/user"
+	"github.com/rzgonz/samplego/rzuser/user"
 
 	"gorm.io/gorm"
 )

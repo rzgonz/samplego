@@ -1,9 +1,8 @@
 package usecase
 
 import (
-	"gosample.rzuser/user"
-
-	"github.com/rzgonz/samplego/contract/user/model"
+	"github.com/rzgonz/samplego/rzuser/model"
+	"github.com/rzgonz/samplego/rzuser/user"
 )
 
 type UserUsecaseImpl struct {
