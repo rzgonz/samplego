@@ -5,10 +5,10 @@ import (
 	"log"
 	"net"
 
-	"gosample.rzuser/model"
-	userHandler "gosample.rzuser/user/handler"
-	userRepo "gosample.rzuser/user/repo"
-	userUsecase "gosample.rzuser/user/usecase"
+	userRepo "github.com/rzgonz/samplego/rzuser/domain/repo"
+	userUsecase "github.com/rzgonz/samplego/rzuser/domain/usecase"
+	userHandler "github.com/rzgonz/samplego/rzuser/handler"
+	"github.com/rzgonz/samplego/rzuser/presistance/model"
 
 	"google.golang.org/grpc"
 	"gorm.io/driver/mysql"

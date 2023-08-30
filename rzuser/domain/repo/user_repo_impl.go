@@ -1,9 +1,10 @@
 package repo
 
 import (
-	"github.com/rzgonz/samplego/rzuser/model"
+	"github.com/rzgonz/samplego/rzuser/presistance/model"
 
-	"github.com/rzgonz/samplego/rzuser/user"
+	"github.com/rzgonz/samplego/contract/user"
+	"github.com/rzgonz/samplego/rzuser/domain"
 
 	"gorm.io/gorm"
 )
@@ -12,11 +13,11 @@ type UserRepoImpl struct {
 	db *gorm.DB
 }
 
-func CreateUserRepoImpl(db *gorm.DB) user.UserRepo {
+func CreateUserRepoImpl(db *gorm.DB) domain.UserRepo {
 	return &UserRepoImpl{db}
 }
 
-func (e *UserRepoImpl) AddUser(user *model.User) (*model.User, error) {
+func (e *UserRepoImpl) AddUser(user *user.User) (*user.User, error) {
 	var userDB = model.UserDB{
 		Name:     user.Name,
 		Email:    user.Email,
@@ -30,8 +31,8 @@ func (e *UserRepoImpl) AddUser(user *model.User) (*model.User, error) {
 	return user, nil
 }
 
-func (e *UserRepoImpl) FindUserById(id model.UserId) (*model.User, error) {
-	var user model.User
+func (e *UserRepoImpl) FindUserById(id user.UserId) (*user.User, error) {
+	var user user.User
 	err := e.db.Table("user").Where("id = ?", id.Id).First(&user).Error
 	if err != nil {
 		return nil, err
@@ -39,8 +40,8 @@ func (e *UserRepoImpl) FindUserById(id model.UserId) (*model.User, error) {
 	return &user, nil
 }
 
-func (e *UserRepoImpl) FindUsers() (*[]model.User, error) {
-	var users []model.User
+func (e *UserRepoImpl) FindUsers() (*[]user.User, error) {
+	var users []user.User
 	err := e.db.Table("user").Find(&users).Error
 	if err != nil {
 		return nil, err
@@ -48,15 +49,15 @@ func (e *UserRepoImpl) FindUsers() (*[]model.User, error) {
 	return &users, nil
 }
 
-func (e *UserRepoImpl) UpdateUser(user *model.UserUpdate) (*model.User, error) {
-	var us model.User
-	err := e.db.Table("user").Where("id = ?", user.Id).First(&us).Error
+func (e *UserRepoImpl) UpdateUser(userData *user.UserUpdate) (*user.User, error) {
+	var us user.User
+	err := e.db.Table("user").Where("id = ?", userData.Id).First(&us).Error
 	if err != nil {
 		return nil, err
 	}
 
 	// Update the user fields with the values from user.User
-	err = e.db.Table("user").Model(&us).Updates(&user.User).Error
+	err = e.db.Table("user").Model(&us).Updates(&userData.User).Error
 	if err != nil {
 		return nil, err
 	}
@@ -64,8 +65,8 @@ func (e *UserRepoImpl) UpdateUser(user *model.UserUpdate) (*model.User, error) {
 	return &us, nil
 }
 
-func (e *UserRepoImpl) DeleteUser(id *model.UserId) error {
-	var user model.User
+func (e *UserRepoImpl) DeleteUser(id *user.UserId) error {
+	var user user.User
 	err := e.db.Table("user").Where("id = ?", id.Id).First(&user).Delete(&user).Error
 	if err != nil {
 		return err

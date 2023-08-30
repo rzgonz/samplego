@@ -12,7 +12,7 @@ for proto_file in $proto_files; do
     echo "Generating protobuf and gRPC files for $proto_file..."
     
     # Generate the protobuf and gRPC files
-    protoc --go_out=. --go-grpc_out=. "$proto_file"
+    protoc --go_out=. --go-grpc_opt=require_unimplemented_servers=false  --go-grpc_out=. "$proto_file"
 
     echo "Generated files for $file_name_no_ext"
 done

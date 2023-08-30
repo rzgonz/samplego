@@ -1,4 +1,4 @@
-package user
+package usecase
 
 import (
 	userContract "github.com/rzgonz/samplego/contract/user"

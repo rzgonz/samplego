@@ -1,8 +1,8 @@
 go 1.20
 
-// use (
-// 	./contract
-// 	./rzuser
-// )
-
-// use ./contract
+use (
+	./common
+	./contract
+	./product
+	./rzuser
+)

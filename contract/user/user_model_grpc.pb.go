@@ -92,7 +92,7 @@ func (c *usersClient) DeleteUser(ctx context.Context, in *UserId, opts ...grpc.C
 }
 
 // UsersServer is the server API for Users service.
-// All implementations must embed UnimplementedUsersServer
+// All implementations should embed UnimplementedUsersServer
 // for forward compatibility
 type UsersServer interface {
 	GetUserList(context.Context, *emptypb.Empty) (*UserList, error)
@@ -100,10 +100,9 @@ type UsersServer interface {
 	InsertUser(context.Context, *User) (*emptypb.Empty, error)
 	UpdateUser(context.Context, *UserUpdate) (*emptypb.Empty, error)
 	DeleteUser(context.Context, *UserId) (*emptypb.Empty, error)
-	mustEmbedUnimplementedUsersServer()
 }
 
-// UnimplementedUsersServer must be embedded to have forward compatible implementations.
+// UnimplementedUsersServer should be embedded to have forward compatible implementations.
 type UnimplementedUsersServer struct {
 }
 
@@ -122,7 +121,6 @@ func (UnimplementedUsersServer) UpdateUser(context.Context, *UserUpdate) (*empty
 func (UnimplementedUsersServer) DeleteUser(context.Context, *UserId) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteUser not implemented")
 }
-func (UnimplementedUsersServer) mustEmbedUnimplementedUsersServer() {}
 
 // UnsafeUsersServer may be embedded to opt out of forward compatibility for this service.
 // Use of this interface is not recommended, as added methods to UsersServer will
