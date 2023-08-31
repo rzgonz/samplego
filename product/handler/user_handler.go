@@ -33,10 +33,10 @@ func (e *UserHandler) addUser(c *gin.Context) {
 		utils.HandleError(c, http.StatusInternalServerError, err.Error())
 		return
 	}
-	if user.Name == "" || user.Email == "" || user.Alamat == "" || user.Password == "" {
-		utils.HandleError(c, http.StatusBadRequest, "fields are required")
-		return
-	}
+	// if user.Name == "" || user.Email == "" || user.Alamat == "" || user.Password == "" {
+	// 	utils.HandleError(c, http.StatusBadRequest, "fields are required")
+	// 	return
+	// }
 	_, err = e.userClient.InsertUser(context.Background(), &user)
 	if err != nil {
 		utils.HandleError(c, http.StatusInternalServerError, err.Error())

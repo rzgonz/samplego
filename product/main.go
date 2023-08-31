@@ -13,7 +13,7 @@ import (
 func main() {
 	port := "8827"
 	targetPort := "8957"
-	conn, err := grpc.Dial(":"+targetPort, grpc.WithInsecure())
+	conn, err := grpc.Dial("rzuser:"+targetPort, grpc.WithInsecure())
 	if err != nil {
 		log.Fatalf("cloud not conect to %v %v", targetPort, err)
 	}

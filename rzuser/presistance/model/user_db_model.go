@@ -3,7 +3,7 @@ package model
 type UserDB struct {
 	Id       int `gorm:"primary_key; auto_increment; not_null"`
 	Name     string
-	Email    string
+	Email    string `gorm:"unique"`
 	Alamat   string
 	Password string
 }

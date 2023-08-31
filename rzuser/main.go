@@ -17,7 +17,7 @@ import (
 
 func main() {
 	var port = "8957"
-	dsn := "rzgonz:enter@tcp(127.0.0.1:3306)/sample?charset=utf8mb4&parseTime=True&loc=Local"
+	dsn := "rzgonz:enter@tcp(192.168.208.2:3306)/sample?charset=utf8mb4&parseTime=True&loc=Local"
 	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	if err != nil {
 		log.Fatal(err)

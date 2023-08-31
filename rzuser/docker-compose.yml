@@ -1,0 +1,22 @@
+version: "3"
+services:
+  app:
+    # build:
+    #   dockerfile: Dockerfile
+    image: golang:1.18-alpine
+    working_dir: /opt/rzuser
+    container_name: rzuser
+    # restart: unless-stopped
+    # env_file:
+    #   - .env.dev
+    ports:
+      - 8957:8957
+    volumes:
+      - ./:/opt/rzuser
+    stdin_open: true
+    command: go run main.go
+    networks:
+      - jaybod_network
+networks:
+  jaybod_network:
+    name: jaybod_network
